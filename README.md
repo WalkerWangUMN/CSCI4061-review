@@ -251,3 +251,25 @@ void copyfile(const char *name1, const char *name2) {
 Reroutes all reads/writes from new_fd to old_fd. <<<<<< IMPORTANT
 
 `cat old_fd > new_fd`
+
+# File systems
+**files and directories**
+**links, i-nodes, masks, permissions**
+
+`int stat (const char* filename, struct stat *buf)`
+
+Stat system call is used to get the file attributes
+
+A stat structure pointed by buf is used to store the attributes
+
+Files must be in directories you have execute permissions for or the struct will be blank
+
+Other variations: fstat() and lstat()
+
+`st_uid`: user id of owner 
+
+`st_size`: total size in bytes 
+
+`st_mode`: protection mode
+
+`st_ino`: inode numbe
