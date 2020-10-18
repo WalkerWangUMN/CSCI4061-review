@@ -234,13 +234,15 @@ Returns number of bytes actually written If this is < n, usually a problem As al
 
 ```
 #define BUFSIZE 512
-#define PERM 0644 // user can read/write, group/other can only read void copyfile(const char *name1, const char *name2) {
-int infile, outfile; ssize_t nread; char buffer [BUFSIZE];
-infile= open (name1, O_RDONLY);
-outfile= open (name2, O_WRONLY | O_TRUNC | O_CREAT, PERM); 
-while ((nread = read(infile, buffer, BUFSIZE)) > 0) 
-    write (outfile, buffer, nread); 
-close (infile); close (outfile);
+#define PERM 0644 // user can read/write, group/other can only read 
+void copyfile(const char *name1, const char *name2) {
+    int infile, outfile; ssize_t nread; char buffer [BUFSIZE];
+    infile= open (name1, O_RDONLY);
+    outfile= open (name2, O_WRONLY | O_TRUNC | O_CREAT, PERM); 
+    while ((nread = read(infile, buffer, BUFSIZE)) > 0) 
+        write (outfile, buffer, nread); 
+    close (infile); close (outfile);
+}
 ```
 
 ## Rerouting with dup2
