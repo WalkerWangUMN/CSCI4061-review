@@ -62,6 +62,7 @@ for (i=0; i<num_urls; i++) wait (NULL);
 
 ## exec()
 `int execl (const char *path, const char *arg0,  const char *arg1, ... (char *) 0);`
+
 arg0 is just the name of the executable “prog” remainder are optional, with 0 or NULL terminating
 
 exec() overwrites current process image with a new one
