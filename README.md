@@ -188,6 +188,7 @@ reads input from the char string pointed by in
 ## Binary I/O
 
 `fwrite(void *buffer, size_t size, size_t nitems, FILE *f);`
+
 `fread(void *buffer, size_t size, size_t nitems, FILE *f);`
 
 ```
