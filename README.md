@@ -105,7 +105,9 @@ Parent exits while child is running -> Child becomes an orphan
 `fprintf (F, “your output is %d”);`
 
 `fflush (F); // force it`
+
 `stderr; // always causes buffer to be flushed s`
+
 `tdout; // with ‘\n’ as well`
 
 Sometime we want to “force” buffer to spill to the OS –> Because see data immediately (OS auto-flushes K sec)
