@@ -259,6 +259,8 @@ Reroutes all reads/writes from new_fd to old_fd. <<<<<< IMPORTANT
 **files and directories**
 **links, i-nodes, masks, permissions**
 
+## stat & link & unlink & remove
+
 `int stat (const char* filename, struct stat *buf)`
 
 Stat system call is used to get the file attributes
@@ -276,3 +278,35 @@ Other variations: fstat() and lstat()
 `st_mode`: protection mode
 
 `st_ino`: inode numbe
+
+*Hard links cannot be made to directories or to files in other file systems*
+
+
+ln fileX fileY: `link("fileX", "fileY");`: Create a hard link
+
+rm fileX: `remove("fileX");`: Unlink (remove) hard link
+
+rm fileX:  `unlink("fileX");`: Identical to remove()
+
+ln -s fileX fileY: `symlink("fileX", "fileY");`: Create a Symbolic link 
+
+*New inode created for symbolic link used*
+
+## Directory Access
+
+mkdir name `int ret = mkdir(path,perms);`: Create a directory
+
+rmdir name `int ret = rmdir(path);` Remove empty directory
+
+cd path `int ret = chdir(path);` Change working directory
+
+pwd `char *path = getcwd(buf,SIZE);` Current directory
+
+
+ls `DIR *dir = opendir(path);`: List directory contents
+
+`struct dirent *file = readdir(dir);`: Start reading filenames from dir Call in a loop, NULL when done After readdir() returns NULL
+`int ret = closedir(dir);`
+
+
+
