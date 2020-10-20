@@ -306,6 +306,7 @@ pwd `char *path = getcwd(buf,SIZE);` Current directory
 ls `DIR *dir = opendir(path);`: List directory contents
 
 `struct dirent *file = readdir(dir);`: Start reading filenames from dir Call in a loop, NULL when done After readdir() returns NULL
+
 `int ret = closedir(dir);`
 
 
