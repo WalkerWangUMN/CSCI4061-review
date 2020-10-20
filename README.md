@@ -309,5 +309,13 @@ ls `DIR *dir = opendir(path);`: List directory contents
 
 `int ret = closedir(dir);`
 
+## Pipe
+*Child to parent: parent opens pipe, child writes, parent reads*
 
-
+*Parent to child: parent opens pipe, parent writes, child reads*
+```
+int pip_fds[2];
+int result = pipe(pip_fds);
+nbytes = write(pip[1], w_buff, BUFLEN);
+nbytes = read(pip[0], r_buff, BUFLEN);
+```
