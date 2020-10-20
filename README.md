@@ -279,6 +279,7 @@ Other variations: fstat() and lstat()
 
 `st_ino`: inode numbe
 
+-----------
 *Hard links cannot be made to directories or to files in other file systems*
 
 
